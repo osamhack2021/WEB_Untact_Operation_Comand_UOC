@@ -20,11 +20,28 @@ function MeetGrid({ users, sidebarOpen }: MeetGridProps) {
   }, [users.length]);
 
   useLayoutEffect(() => {
+<<<<<<< HEAD
     const gridWidth = sidebarOpen
       ? document.body.offsetWidth - 320
       : document.body.offsetWidth;
     setItemWidth(gridWidth / divisor);
   }, [divisor, sidebarOpen]);
+=======
+    const gridWidth = ref.current.clientWidth;
+    const gridHeight = ref.current.clientHeight;
+
+    setItemWidth(gridWidth / divisor);
+    setItemHeight(gridHeight / divisor);
+  }, [divisor]);
+
+  useEffect(() => {
+    if (users.length === 1) {
+      setItemWidth(ref.current.clientWidth / divisor - 400);
+      setItemHeight(ref.current.clientHeight / divisor - 50);
+    }
+    console.log("users", users);
+  }, [users, divisor]);
+>>>>>>> 1784f4249506dee64ffc0509966687bcb73c1ebd
 
   return (
     <Grid ref={ref}>
