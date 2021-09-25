@@ -3,15 +3,27 @@ import React from "react";
 import styled from "styled-components";
 import IconCircleButton from "./IconCircleButton";
 
-const FooterButtonGroup = () => {
+interface FooterButtonGroupProps {
+  muted: boolean;
+  onToggleMuted: () => void;
+  videoDisabled: boolean;
+  onToggleVideoDisabled: () => void;
+}
+
+const FooterButtonGroup = ({
+  muted,
+  onToggleMuted,
+  videoDisabled,
+  onToggleVideoDisabled,
+}: FooterButtonGroupProps) => {
   return (
     <Group>
       <RedButton>
-        <MicOffIcon />
+        <MicOffIcon onClick={onToggleMuted} />
       </RedButton>
 
       <RedButton>
-        <VideocamOffIcon />
+        <VideocamOffIcon onClick={onToggleVideoDisabled} />
       </RedButton>
 
       <CallEndButton>
