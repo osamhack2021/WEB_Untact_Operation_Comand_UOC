@@ -1,4 +1,5 @@
 export const palette = {
-    mainColor: "#091422",
-    border: "#f4f4f4",
-  };
+  mainColor: "#0c1b2f",
+  mainColorHover: "#425165",
+  border: "#f4f4f4",
+};
