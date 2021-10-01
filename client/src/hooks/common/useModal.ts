@@ -1,4 +1,4 @@
-
+  
 import { useState } from "react";
 
 export default function useModal() {
@@ -12,4 +12,3 @@ export default function useModal() {
     isModal,
     onToggleModal,
   };
-}
