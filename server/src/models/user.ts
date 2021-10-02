@@ -1,7 +1,7 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
-import validator from "validator";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import mongoose, { Document, Model, Schema } from "mongoose";
+import validator from "validator";
 
 const saltRounds: number = 10;
 
@@ -9,7 +9,6 @@ export interface IUser {
   email: string;
   password: string;
   name: string;
-  role: string;
   thumbnail: string;
   friends: string[];
   token: string;
@@ -56,11 +55,6 @@ const UserSchema: Schema<IUserMethod> = new Schema(
         }
       },
     },
-    role: {
-      type: String,
-      enum: ["user", "admin"],
-      default: "user",
-    },
     thumbnail: {
       type: String,
       trim: true,
@@ -103,7 +97,7 @@ UserSchema.methods.generateToken = async function () {
       name: this.name,
       email: this.email,
     },
-    process.env.JWT_SECRET
+    process.env.JWT_SECRET || "Require key here!!!"
   );
   this.token = token;
   await this.save();
