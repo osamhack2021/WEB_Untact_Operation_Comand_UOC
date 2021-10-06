@@ -1,13 +1,24 @@
 import { atom } from "recoil";
 
-const userState = atom({
-  key: "userState", // unique ID (with respect to other atoms/selectors)
-  default: {
-    email: "",
-    name: "",
-    role: "",
-    thumbnail: "",
-    friends: [],
-  }, // default value (aka initial value)
+export interface IUserState {
+  _id: string;
+  email: string;
+  name: string;
+  role: string;
+  thumbnail: string;
+  friends: IUserState[];
+}
+
+const initialState: IUserState = {
+  _id: "",
+  email: "",
+  name: "",
+  role: "",
+  thumbnail: "",
+  friends: [],
+};
+
+export const userState = atom({
+  key: "userState",
+  default: initialState,
 });
-export { userState };
