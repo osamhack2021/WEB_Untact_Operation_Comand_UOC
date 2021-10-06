@@ -1,5 +1,5 @@
 import { userState } from "atoms/userState";
-import { registerAPI } from "lib/api/auth";
+import { loginAPI, logoutAPI, registerAPI } from "lib/api/auth";
 import userStorage from "lib/userStorage";
 import { useCallback, useState } from "react";
 import { useHistory } from "react-router";
@@ -38,9 +38,36 @@ export default function useAuth() {
     [email, name, password, history, setUserState]
   );
 
+  const onLogin = useCallback(
+    async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      try {
+        const user = await loginAPI(email, password);
+        setUserState(user);
+        userStorage.set(user);
+        history.push("/");
+      } catch (e) {
+        alert("로그인에 실패했습니다.");
+      }
+    },
+    [email, password, history, setUserState]
+  );
+
+  const onLogout = useCallback(async () => {
+    try {
+      await logoutAPI();
+      userStorage.remove();
+      setUserState(null);
+    } catch (e) {
+      alert("로그아웃에 실패했습니다.");
+    }
+  }, [setUserState]);
+
   return {
     form,
     onChange,
+    onLogin,
     onRegister,
+    onLogout,
   };
 }
