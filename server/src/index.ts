@@ -1,14 +1,11 @@
-import http from "http";
 import express from "express";
-import cors from "cors";
-import webRTCSocket from "./socket";
+import userRouter from "./user";
+import calendarRouter from "./calendar";
+import meetRouter from "./meet";
 
-const app = express();
-const server: http.Server = http.createServer(app);
+const router = express.Router();
 
-app.use(cors());
-webRTCSocket(server);
-
-server.listen(process.env.PORT || 8080, () => {
-  console.log("server running on 8080");
-});
+router.use("/user", userRouter);
+router.use("/calendar", calendarRouter);
+router.use("/meet", meetRouter);
+export default router;
