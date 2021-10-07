@@ -69,11 +69,13 @@ const AsideTitle = styled.div`
   }
   ${media.xlarge} {
     justify-content: center;
+    flex-direction: column;
     .profile-img {
       margin-right: 0;
+      margin-bottom: 12px;
     }
     .user-name {
-      display: none;
+      font-size: 14px;
     }
   }
 `;

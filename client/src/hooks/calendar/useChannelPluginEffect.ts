@@ -1,4 +1,3 @@
-   
 import { useEffect, useState } from "react";
 import { readScheduleLinstAPI } from "lib/api/claendar";
 
@@ -9,7 +8,7 @@ export default function useCalendarEffect() {
       const schedules = await readScheduleLinstAPI();
       setSchedules(schedules);
     };
-    getData();
+    getData();  
   }, []);
   return { schedules };
-}
+}//나중에 조건 달거임.

@@ -75,7 +75,8 @@ const AsideMenuBlock = styled.div`
   flex-direction: column;
   justify-content: space-between;
   flex: 1;
-  a {
+  a,
+  .logout {
     display: flex;
     align-items: center;
     padding: 10px 7px;
@@ -86,35 +87,26 @@ const AsideMenuBlock = styled.div`
       background-color: #f5f5f5;
       color: #000;
     }
-  }
-  .ico {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-  }
-  .name {
-    font-size: 18px;
-  }
-  ${media.xlarge} {
-    flex-direction: column;
     .ico {
-      margin-right: 0;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
     }
     .name {
-      font-size: 12px;
+      font-size: 18px;
+    }
+    ${media.xlarge} {
+      flex-direction: column;
+      .ico {
+        margin-right: 0;
+      }
+      .name {
+        font-size: 12px;
+      }
     }
   }
   .logout {
-    display: flex;
-    padding: 10px 7px;
-    align-items: center;
-    color: #b1b1b1;
     width: 100%;
-    border-radius: 10px;
-    &:hover {
-      background-color: #f5f5f5;
-      color: #000;
-    }
   }
 `;
 
