@@ -11,7 +11,7 @@ interface CalendarModalProps {
 const CalendarModal = ({ isModal, onToggleModal }: CalendarModalProps) => {
   const { onChangeSchedule, onCreateSchedule } = useCalendarForm();
   const schedule = useRecoilValue(scheduleState);
-  const { title, date, start, end } = schedule;
+  const { title, start, end } = schedule;
   return (
     <div>
       {isModal ? (
@@ -36,13 +36,7 @@ const CalendarModal = ({ isModal, onToggleModal }: CalendarModalProps) => {
             </div>
             <div className="infoEle">
               <div className="infoQutn"> 날짜 </div>
-              <input
-                type="date"
-                className="infoInput"
-                name="date"
-                value={date}
-                onChange={onChangeSchedule}
-              />
+              <input type="date" className="infoInput" />
             </div>
             <div className="infoEle">
               <div className="infoQutn"> 시간 </div>
@@ -51,7 +45,7 @@ const CalendarModal = ({ isModal, onToggleModal }: CalendarModalProps) => {
                   type="time"
                   className="infoInputShort"
                   name="start"
-                  value={start}
+
                   onChange={onChangeSchedule}
                 />
                 ~
@@ -59,7 +53,7 @@ const CalendarModal = ({ isModal, onToggleModal }: CalendarModalProps) => {
                   type="time"
                   className="infoInputShort"
                   name="end"
-                  value={end}
+ 
                   onChange={onChangeSchedule}
                 />
               </div>
@@ -95,4 +89,3 @@ const ModalStyled = styled.div`
   }
 `;
 export default CalendarModal;
-© 2
