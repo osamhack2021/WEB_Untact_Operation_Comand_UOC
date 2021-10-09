@@ -106,4 +106,3 @@ export const deleteSchedule = async (req: Request, res: Response) => {
     });
   }
 };
-Fix : date,start,end Type 재설정
