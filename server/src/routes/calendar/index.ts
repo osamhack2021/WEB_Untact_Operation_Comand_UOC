@@ -1,11 +1,10 @@
 import express from "express";
-import userRouter from "./user";
-import calendarRouter from "./calendar";
-import meetRouter from "./meet";
+import * as calendarCtrl from "./calendar.ctrl";
 
 const router = express.Router();
 
-router.use("/user", userRouter);
-router.use("/calendar", calendarRouter);
-router.use("/meet", meetRouter);
+router.post("/createSchedule", calendarCtrl.createSchedule);
+router.get("/readSchedule", calendarCtrl.readSchedule);
+router.patch("/updateSchedule", calendarCtrl.updateSchedule);
+router.delete("/deleteSchedule/:scheduleId", calendarCtrl.deleteSchedule);
 export default router;

@@ -1,4 +1,3 @@
-
 export const palette = {
   mainColor: "#0c1b2f",
   mainColorHover: "#425165",

@@ -1,4 +1,3 @@
-   
 import React from "react";
 import { IoPeopleOutline } from "react-icons/io5";
 import styled from "styled-components";
