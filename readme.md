@@ -74,3 +74,43 @@
 ## 개발 기록
 
 -
+
+## 팀원
+<table width="900">
+<thead>
+<tr>
+<th width="100" align="center">Profile</th>
+<th width="100" align="center">Name</th>
+<th width="250" align="center">Role</th>
+<th width="150" align="center">Github</th>
+<th width="300" align="center">E-mail</th>
+</tr> 
+</thead>
+<tbody>
+
+<tr>
+<td width="100" align="center"><img src="/image/PROFILE1.png" width="60" height="60"></td>
+<td width="100" align="center">이재하</td>
+<td width="250">Frontend</td>
+<td width="150" align="center">	
+	<a href="https://github.com/jhl2619">
+	<img src="https://img.shields.io/badge/JHL-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="300" align="center">
+<a href="mailto:mslee300@bu.edu"><img src="https://img.shields.io/static/v1?label=&message=jhl2619@naver.com&color=lightblue&style=flat-square&logo=naver"></a>
+</tr>
+	
+ 
+<tr>
+<td width="100" align="center"><img src="/image/PROFILE1.png" width="60" height="60"></td>
+<td width="100" align="center">최수용</td>
+<td width="250">Backend</td>
+<td width="150" align="center">	
+	<a href="https://github.com/dpfprtus">
+	<img src="https://img.shields.io/badge/CSY-655ced?style=social&logo=github"/>
+	</a>
+</td>
+<td width="300" align="center">
+<a href="mailto:dpfprtus@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=dpfprtus@gmail.com&color=lightblue&style=flat-square&logo=gmail"></a>
+</tr>
