@@ -93,7 +93,7 @@
 <td width="100" align="center">이재하</td>
 <td width="250">Frontend</td>
 <td width="150" align="center">	
-	<a href="https://github.com/jhl2619">
+	<a href="https://github.com/Leejha">
 	<img src="https://img.shields.io/badge/JHL-655ced?style=social&logo=github"/>
 	</a>
 </td>
