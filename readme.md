@@ -12,7 +12,7 @@
 ## 메뉴얼
 깃북을 통해서 UOC프로젝트의 모든것을 확인해 보세요!
 <p align="center">
-  <a href="https://https://dpfprtus.gitbook.io/uoc/" target="_blank">
+  <a href="https://dpfprtus.gitbook.io/uoc/" target="_blank">
     <img src="https://img.shields.io/badge/GitBook-project_doc-blue?&style=for-the-badge&logo=github" />
   </a>
 </p>
