@@ -276,6 +276,15 @@ export default function (server: http.Server) {
       }
     });
 
+    socket.on(
+      "sendChatMessage",
+      (messageObject: { meetId: string; message: string; name: string }) => {
+        console.log("messageObject", messageObject);
+
+        io.to(messageObject.meetId).emit("receiveChatMessage", messageObject);
+      }
+    );
+
     socket.on("disconnect", async () => {
       try {
         let meetId = socketToRoom[socket.id];

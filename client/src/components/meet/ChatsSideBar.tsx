@@ -2,41 +2,60 @@ import React from "react";
 import { CloseIcon } from "assets/icons";
 import styled, { css } from "styled-components";
 import UserItem from "./UserItem";
+import { RiSendPlaneFill } from "react-icons/ri";
+import { palette } from "lib/styles/palette";
+import { IChat } from "./Meet";
 
 interface ChatsSideBarProps {
   visible: boolean;
   onToggleSidebar: () => void;
-  users: IWebRTCUser[];
-  mySessionId: string;
+  chatMessages: IChat[];
+  messagesEndRef: any;
+  onSendChatMessage: (e: React.FormEvent<HTMLFormElement>) => void;
+  onChangeMessage: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  message: string;
 }
 
 const ChatsSideBar = ({
   visible,
   onToggleSidebar,
-  users,
-  mySessionId,
+  chatMessages,
+  messagesEndRef,
+  onSendChatMessage,
+  onChangeMessage,
+  message,
 }: ChatsSideBarProps) => {
   return (
     <Aside visible={visible}>
       <div className="content">
         <header>
-          <h3>Chats</h3>
+          <h3>채팅</h3>
           <button onClick={onToggleSidebar}>
             <CloseIcon />
           </button>
         </header>
-        <div className="users">
+        <div className="chats">
           <div className="scroll">
-            {users.map((user, index) => (
-              <UserItem
-                key={index}
-                userName={user.name} // TODO: user.id 를 나중에 user.name 으로 변경
-                isMySelf={user.id === mySessionId}
-                muted={user.muted}
-              />
+            {chatMessages.map((chat, index) => (
+              <div key={index}>{chat.message}</div>
             ))}
+            <div ref={messagesEndRef}></div>
           </div>
         </div>
+
+        <MessageInput>
+          <form onSubmit={onSendChatMessage}>
+            <input
+              type="text"
+              value={message}
+              onChange={onChangeMessage}
+              placeholder="메세지를 입력해주세요"
+            />
+            <button type="submit">
+              <RiSendPlaneFill size="28" />
+            </button>
+          </form>
+        </MessageInput>
       </div>
     </Aside>
   );
@@ -81,11 +100,11 @@ const Aside = styled.aside<{ visible: boolean }>`
         align-items: center;
       }
       h3 {
-        font-size: 24px;
+        font-size: 20px;
         margin: 0;
       }
     }
-    .users {
+    .chats {
       flex: 1;
       position: relative;
       .scroll {
@@ -93,12 +112,33 @@ const Aside = styled.aside<{ visible: boolean }>`
         width: 100%;
         height: 100%;
         overflow: auto;
+        padding: 10px 15px;
         .item {
           width: 100%;
           height: 56px;
           border: 1px solid white;
         }
       }
+    }
+  }
+`;
+
+const MessageInput = styled.div`
+  padding: 15px 20px;
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    input {
+      width: 90%;
+      border: 1px solid #f1f3f4;
+      background: #f1f3f4;
+      border-radius: 15px;
+      padding: 8px;
+      outline: none;
+    }
+    svg {
+      color: ${palette.mainColor};
     }
   }
 `;
