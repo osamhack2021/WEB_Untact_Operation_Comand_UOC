@@ -51,11 +51,14 @@ export default function (server: http.Server) {
     };
 
     pc.oniceconnectionstatechange = (e) => {
-      //console.log(e);
-      // console.log(
-      //   "Receiver oniceconnectionstatechange",
-      //   e.target.iceConnectionState
-      // );
+      console.log(e);
+      console.log(
+        "Receiver oniceconnectionstatechange",
+        e.target.iceConnectionState
+      );
+      if (e.iceConnectionState === "failed") {
+        pc.restartIce();
+      }
     };
 
     pc.ontrack = (e) => {
@@ -111,11 +114,14 @@ export default function (server: http.Server) {
     };
 
     pc.oniceconnectionstatechange = (e) => {
-      //console.log(e);
-      // console.log(
-      //   "Sender oniceconnectionstatechange",
-      //   e.target.iceConnectionState
-      // );
+      console.log(e);
+      console.log(
+        "Sender oniceconnectionstatechange",
+        e.target.iceConnectionState
+      );
+      if (e.iceConnectionState === "failed") {
+        pc.restartIce();
+      }
     };
 
     const sendUser = users[meetId].filter((user) => user.id === senderSocketID);
