@@ -1,8 +1,4 @@
-import {
-  initialScheduleState,
-  schedulesState,
-  scheduleState,
-} from "atoms/calendarState";
+import { schedulesState, scheduleState } from "atoms/calendarState";
 import { createScheduleAPI } from "lib/api/claendar";
 
 import { useRecoilState, useResetRecoilState, useSetRecoilState } from "recoil";
