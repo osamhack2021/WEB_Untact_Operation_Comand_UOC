@@ -3,32 +3,36 @@ import styled from "styled-components";
 import { BsFillPersonFill, BsTrash } from "react-icons/bs";
 import useMemberListEffect from "hooks/Member/useMemberListEffect";
 import media from "lib/styles/media";
+import useMemberHandleEffect from "hooks/Member/useMemberHandleEffect";
 
 const MembersList = () => {
   const { friends } = useMemberListEffect();
+  const { onDeleteFriend } = useMemberHandleEffect();
   console.log(friends);
   return (
     <MenberListBlock>
-      {friends &&
-        friends.map((friend, index) => (
-          <div key={index}>
-            <List>
-              <ListEle>
-                <div className="profile">
-                  <BsFillPersonFill />
-                  {/* 여기에 프로필사진 */}
-                </div>
-                <div className="friendName">{friend.name}</div>
-              </ListEle>
-              <ListEle>
-                <div className="call">1:1 채팅신청</div>
-                <div className="delFriend">
-                  <BsTrash size="22" />
-                </div>
-              </ListEle>
-            </List>
-          </div>
-        ))}
+      {friends?.map((friend, index) => (
+        <div key={index}>
+          <List>
+            <ListEle>
+              <div className="profile">
+                <BsFillPersonFill />
+                {/* 여기에 프로필사진 */}
+              </div>
+              <div className="friendName">{friend.name}</div>
+            </ListEle>
+            <ListEle>
+              <div className="call">1:1 채팅신청</div>
+              <div
+                className="delFriend"
+                onClick={() => onDeleteFriend(friend._id)}
+              >
+                <BsTrash size="22" />
+              </div>
+            </ListEle>
+          </List>
+        </div>
+      ))}
       <List>
         <ListEle>
           <div className="emptyProfile"></div>
