@@ -32,13 +32,13 @@ export default function (server: http.Server) {
     meetId,
     userId,
     name
-  ) => {
+  ): RTCPeerConnection => {
     let pc = new wrtc.RTCPeerConnection(pc_config);
 
     if (receiverPCs[socketID]) receiverPCs[socketID] = pc;
     else receiverPCs = { ...receiverPCs, [socketID]: pc };
 
-    pc.onicecandidate = (e) => {
+    pc.onicecandidate = (e: RTCPeerConnectionIceEvent) => {
       //console.log(`socketID: ${socketID}'s receiverPeerConnection icecandidate`);
       socket.to(socketID).emit("getSenderCandidate", {
         candidate: e.candidate,
@@ -53,8 +53,11 @@ export default function (server: http.Server) {
       // );
     };
 
-    pc.ontrack = (e) => {
-      e.streams[0].getTracks().forEach((track) => {});
+    pc.ontrack = (e: RTCTrackEvent) => {
+      e.streams[0].getTracks().forEach((track: MediaStreamTrack) => {
+        // console.log(track.kind, track.muted);
+      });
+
       if (users[meetId]) {
         if (!isIncluded(users[meetId], socketID)) {
           users[meetId].push({
@@ -62,6 +65,7 @@ export default function (server: http.Server) {
             stream: e.streams[0],
             userId,
             name,
+            muted: false,
           });
         } else return;
       } else {
@@ -71,10 +75,13 @@ export default function (server: http.Server) {
             stream: e.streams[0],
             userId,
             name,
+            muted: false,
           },
         ];
       }
-      socket.broadcast.to(meetId).emit("userEnter", { id: socketID, name });
+      socket.broadcast
+        .to(meetId)
+        .emit("userEnter", { id: socketID, name, muted: false });
     };
 
     return pc;
@@ -129,7 +136,11 @@ export default function (server: http.Server) {
     let len = users[meetId].length;
     for (let i = 0; i < len; i++) {
       if (users[meetId][i].id === socketID) continue;
-      allUsers.push({ id: users[meetId][i].id, name: users[meetId][i].name });
+      allUsers.push({
+        id: users[meetId][i].id,
+        name: users[meetId][i].name,
+        muted: users[meetId][i].muted,
+      });
     }
 
     return allUsers;
@@ -280,6 +291,18 @@ export default function (server: http.Server) {
       "sendChatMessage",
       (messageObject: { meetId: string; message: string; name: string }) => {
         io.to(messageObject.meetId).emit("receiveChatMessage", messageObject);
+      }
+    );
+
+    socket.on(
+      "sendToggleMuted",
+      (payload: { userSocketId: string; meetId: string; muted: boolean }) => {
+        users[payload.meetId].forEach((user) => {
+          if (user.id === payload.userSocketId) {
+            user.muted = payload.muted;
+          }
+        });
+        io.to(payload.meetId).emit("receiveToggleMuted", payload);
       }
     );
 

@@ -40,6 +40,7 @@ const Meet = ({ meetInfo }: MeetProps) => {
   });
   const { meetId } = useParams<MeetParams>();
 
+  // 사이드바 토글 상태
   const [usersSidebarOpen, setUsersSidebarOpen] = useState(false);
   const [chatsSidebarOpen, setChatsSidebarOpen] = useState(false);
 
@@ -115,17 +116,28 @@ const Meet = ({ meetInfo }: MeetProps) => {
 
     // //화면 공유 테스트 여기까지
 
-    newSocket.on("userEnter", (data: { id: string; name: string }) => {
-      createReceivePC(data.id, newSocket, data.name);
-    });
+    newSocket.on(
+      "userEnter",
+      (data: { id: string; name: string; muted: boolean }) => {
+        console.log("3명이면 이거 몇버 실행되는지 확인해보자", data.name);
+        createReceivePC(data.id, newSocket, data.name, data.muted);
+      }
+    );
 
     // 해당 방에 있는 유저들 목록을 받음
     newSocket.on(
       "allUsers",
-      (data: { users: Array<{ id: string; name: string }> }) => {
+      (data: {
+        users: Array<{ id: string; name: string; muted: boolean }>;
+      }) => {
         let len = data.users.length;
         for (let i = 0; i < len; i++) {
-          createReceivePC(data.users[i].id, newSocket, data.users[i].name);
+          createReceivePC(
+            data.users[i].id,
+            newSocket,
+            data.users[i].name,
+            data.users[i].muted
+          );
         }
       }
     );
@@ -193,6 +205,21 @@ const Meet = ({ meetInfo }: MeetProps) => {
       }
     );
 
+    newSocket.on(
+      "receiveToggleMuted",
+      (data: { userSocketId: string; meetId: string; muted: boolean }) => {
+        console.log("얌마", data);
+        setUsers((users) =>
+          users.map((user) => {
+            if (user.id === data.userSocketId) {
+              user.muted = data.muted;
+            }
+            return user;
+          })
+        );
+      }
+    );
+
     newSocket.on("hostLeave", async (data: { message: string }) => {
       alert(data.message);
     });
@@ -201,11 +228,12 @@ const Meet = ({ meetInfo }: MeetProps) => {
   const createReceivePC = (
     id: string,
     newSocket: SocketIOClient.Socket,
-    name: string
+    name: string,
+    muted: boolean
   ) => {
     try {
       console.log(`socketID(${id}) user entered`);
-      let pc = createReceiverPeerConnection(id, newSocket, name);
+      let pc = createReceiverPeerConnection(id, newSocket, name, muted);
       createReceiverOffer(pc, newSocket, id);
     } catch (error) {
       console.log(error);
@@ -296,7 +324,8 @@ const Meet = ({ meetInfo }: MeetProps) => {
   const createReceiverPeerConnection = (
     socketID: string,
     newSocket: SocketIOClient.Socket,
-    name: string
+    name: string,
+    muted: boolean
   ): RTCPeerConnection => {
     let pc = new RTCPeerConnection(pc_config);
 
@@ -332,7 +361,7 @@ const Meet = ({ meetInfo }: MeetProps) => {
           id: socketID,
           stream: e.streams[0],
           name,
-          muted: false,
+          muted,
           videoOff: false,
         })
       );
@@ -346,15 +375,17 @@ const Meet = ({ meetInfo }: MeetProps) => {
     const nextValue = !muted;
     setMediaState((prev) => ({ ...prev, muted: nextValue }));
 
-    // users.map((user) => {
-    //   if (user.id === mySessionId) {
-    //     user.muted = nextValue;
-    //   }
-    // });
-
     const audioTrack = users[0].stream.getAudioTracks()[0];
     if (!audioTrack) return;
     audioTrack.enabled = !nextValue;
+
+    const payload = {
+      userSocketId: newSocket.id,
+      meetId,
+      muted: nextValue,
+    };
+
+    newSocket.emit("sendToggleMuted", payload);
   };
 
   const onToggleVideoDisabled = () => {
@@ -410,48 +441,6 @@ const Meet = ({ meetInfo }: MeetProps) => {
         console.log(`getDisplayMedia error: ${error}`);
       });
   };
-
-  // 채팅 부분
-
-  // const [chatMessages, setChatMessages] = useState<IChat[]>([]);
-  // const [message, setMessage] = useState("");
-  // const [receiveMessage, setReceiveMessage] = useState({
-  //   meetId: "",
-  //   message: "",
-  //   name: "",
-  // });
-
-  // const onChangeMessage = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setMessage(e.target.value);
-  // };
-
-  // const onSendChatMessage = (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  //   const messageObject = {
-  //     meetId,
-  //     message,
-  //     name: user.name,
-  //   };
-
-  //   newSocket.emit("sendChatMessage", messageObject);
-  //   setMessage("");
-  // };
-
-  // // 채팅 스크롤 고정
-  // const messagesEndRef = useRef<any>(null);
-  // const scrollToBottom = () => {
-  //   messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  // };
-
-  // useEffect(() => {
-  //   console.log("set Chat Effect Rendering");
-  //   const setChat = async () => {
-  //     (await receiveMessage.name.length) > 0 &&
-  //       setChatMessages((chat) => chat.concat(receiveMessage));
-  //     scrollToBottom();
-  //   };
-  //   setChat();
-  // }, [receiveMessage]);
 
   return (
     <MeetPageBlock>
