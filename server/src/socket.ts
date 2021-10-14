@@ -1,5 +1,6 @@
 import http from "http";
-import { Server } from "socket.io";
+import { Server, Socket } from "socket.io";
+import { DefaultEventsMap } from "socket.io/dist/typed-events";
 import wrtc from "wrtc";
 import Meet from "./models/meet";
 
@@ -11,12 +12,25 @@ interface IUserState {
   muted: boolean;
 }
 
+interface IUsers {
+  [key: string]: IUserState[];
+}
+
+interface ISenderPC {
+  id: string;
+  pc: RTCPeerConnection;
+}
+
+interface ISenderPCs {
+  [key: string]: ISenderPC[];
+}
+
 export default function (server: http.Server) {
   let receiverPCs = {};
-  let senderPCs = {};
+  let senderPCs: ISenderPCs = {};
   // 유저 목록
-  let users = {};
-  let socketToRoom = {};
+  const users: IUsers = {};
+  const socketToRoom = {};
 
   const pc_config = {
     iceServers: [
@@ -33,35 +47,25 @@ export default function (server: http.Server) {
     return false;
   };
 
-  // const isIncluded = (array, id) => {
-  //   let len = array.length;
-  //   for (let i = 0; i < len; i++) {
-  //     if (array[i].id === id) return true;
-  //   }
-  //   return false;
-  // };
-
   const createReceiverPeerConnection = (
-    socketID,
-    socket,
-    meetId,
-    userId,
-    name
+    socketID: string,
+    socket: Socket<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>,
+    meetId: string,
+    userId: string,
+    name: string
   ): RTCPeerConnection => {
-    let pc = new wrtc.RTCPeerConnection(pc_config);
+    let pc: RTCPeerConnection = new wrtc.RTCPeerConnection(pc_config);
 
     if (receiverPCs[socketID]) receiverPCs[socketID] = pc;
     else receiverPCs = { ...receiverPCs, [socketID]: pc };
 
     pc.onicecandidate = (e: RTCPeerConnectionIceEvent) => {
-      //console.log(`socketID: ${socketID}'s receiverPeerConnection icecandidate`);
       socket.to(socketID).emit("getSenderCandidate", {
         candidate: e.candidate,
       });
     };
 
     pc.oniceconnectionstatechange = (e) => {
-      // console.log(e);
       // console.log(
       //   "Receiver oniceconnectionstatechange",
       //   e.target.iceConnectionState
@@ -69,10 +73,6 @@ export default function (server: http.Server) {
     };
 
     pc.ontrack = (e: RTCTrackEvent) => {
-      e.streams[0].getTracks().forEach((track: MediaStreamTrack) => {
-        // console.log(track.kind, track.muted);
-      });
-
       if (users[meetId]) {
         if (!isIncluded(users[meetId], socketID)) {
           users[meetId].push({
@@ -120,7 +120,6 @@ export default function (server: http.Server) {
       };
 
     pc.onicecandidate = (e) => {
-      //console.log(`socketID: ${receiverSocketID}'s senderPeerConnection icecandidate`);
       socket.to(receiverSocketID).emit("getReceiverCandidate", {
         id: senderSocketID,
         candidate: e.candidate,
@@ -128,7 +127,6 @@ export default function (server: http.Server) {
     };
 
     pc.oniceconnectionstatechange = (e) => {
-      // console.log(e);
       // console.log(
       //   "Sender oniceconnectionstatechange",
       //   e.target.iceConnectionState
@@ -143,26 +141,27 @@ export default function (server: http.Server) {
     return pc;
   };
 
-  const getOtherUsersInRoom = (socketID, meetId) => {
-    let allUsers = [];
-
+  const getOtherUsersInRoom = (socketID: string, meetId: string) => {
+    const allUsers = [];
     if (!users[meetId]) return allUsers;
 
-    let len = users[meetId].length;
-    for (let i = 0; i < len; i++) {
-      if (users[meetId][i].id === socketID) continue;
+    for (const user of users[meetId]) {
+      if (user.id === socketID) continue;
       allUsers.push({
-        id: users[meetId][i].id,
-        name: users[meetId][i].name,
-        muted: users[meetId][i].muted,
+        id: user.id,
+        name: user.name,
+        muted: user.muted,
       });
     }
-
     return allUsers;
   };
 
-  const deleteUser = async (socketID, meetId, io) => {
-    let roomUsers = users[meetId];
+  const deleteUser = async (
+    socketID: string,
+    meetId: string,
+    io: Server<DefaultEventsMap, DefaultEventsMap, DefaultEventsMap>
+  ) => {
+    const roomUsers = users[meetId];
     if (!roomUsers) return;
 
     // 나갈려고하는 user의 id를 찾아서 호스트 인지 체크
@@ -177,38 +176,36 @@ export default function (server: http.Server) {
       console.log("deleteUser 에러", e);
     }
 
-    roomUsers = roomUsers.filter((user) => user.id !== socketID);
-    users[meetId] = roomUsers;
-    if (roomUsers.length === 0) {
+    users[meetId] = roomUsers.filter((user) => user.id !== socketID);
+    if (users[meetId].length === 0) {
       delete users[meetId];
     }
     delete socketToRoom[socketID];
   };
 
-  const closeRecevierPC = (socketID) => {
+  const closeRecevierPC = (socketID: string) => {
     if (!receiverPCs[socketID]) return;
 
     receiverPCs[socketID].close();
     delete receiverPCs[socketID];
   };
 
-  const closeSenderPCs = (socketID) => {
+  const closeSenderPCs = (socketID: string) => {
     if (!senderPCs[socketID]) return;
 
-    let len = senderPCs[socketID].length;
-    for (let i = 0; i < len; i++) {
-      senderPCs[socketID][i].pc.close();
-      let _senderPCs = senderPCs[senderPCs[socketID][i].id];
-      let senderPC = _senderPCs.filter((sPC) => sPC.id === socketID);
+    console.log(senderPCs);
+
+    for (const sPC of senderPCs[socketID]) {
+      sPC.pc.close();
+      const _senderPCs = senderPCs[sPC.id];
+      const senderPC = _senderPCs.filter((pc) => pc.id === socketID);
       if (senderPC[0]) {
         senderPC[0].pc.close();
-        senderPCs[senderPCs[socketID][i].id] = _senderPCs.filter(
-          (sPC) => sPC.id !== socketID
-        );
+        senderPCs[sPC.id] = _senderPCs.filter((pc) => pc.id !== socketID);
       }
     }
-
     delete senderPCs[socketID];
+    console.log(senderPCs);
   };
 
   // socket 서버 생성
@@ -323,7 +320,7 @@ export default function (server: http.Server) {
 
     socket.on("disconnect", async () => {
       try {
-        let meetId = socketToRoom[socket.id];
+        const meetId = socketToRoom[socket.id];
         deleteUser(socket.id, meetId, io);
         closeRecevierPC(socket.id);
         closeSenderPCs(socket.id);
