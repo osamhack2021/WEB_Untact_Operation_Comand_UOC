@@ -3,6 +3,14 @@ import { Server } from "socket.io";
 import wrtc from "wrtc";
 import Meet from "./models/meet";
 
+interface IUserState {
+  id: string;
+  stream: MediaStream;
+  userId: string;
+  name: string;
+  muted: boolean;
+}
+
 export default function (server: http.Server) {
   let receiverPCs = {};
   let senderPCs = {};
@@ -18,13 +26,20 @@ export default function (server: http.Server) {
     ],
   };
 
-  const isIncluded = (array, id) => {
-    let len = array.length;
-    for (let i = 0; i < len; i++) {
-      if (array[i].id === id) return true;
+  const isIncluded = (array: IUserState[], id: string) => {
+    for (const arr of array) {
+      if (arr.id === id) return true;
     }
     return false;
   };
+
+  // const isIncluded = (array, id) => {
+  //   let len = array.length;
+  //   for (let i = 0; i < len; i++) {
+  //     if (array[i].id === id) return true;
+  //   }
+  //   return false;
+  // };
 
   const createReceiverPeerConnection = (
     socketID,
@@ -155,8 +170,8 @@ export default function (server: http.Server) {
     try {
       const meet = await Meet.findOne({ _id: meetId });
       if (meet.host.toString() === userId) {
-        io.to(meetId).emit("hostLeave", { message: "호스트가 종료했습니다." });
-        meet.deleteOne();
+        // io.to(meetId).emit("hostLeave", { message: "호스트가 종료했습니다." });
+        // meet.deleteOne();
       }
     } catch (e) {
       console.log("deleteUser 에러", e);
