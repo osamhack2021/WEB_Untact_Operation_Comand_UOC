@@ -52,7 +52,31 @@
 - socket io
 - typescript
 
-### Back-End
+<table><tbody>
+ <tr>
+  <td>
+   <div align="center"><a href="https://reactjs.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original-wordmark.svg" alt=
+"react" width="40" height="40" /> </a><br>React.js</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40" /> </a><br>Typescript</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://www.w3.org/html/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40" /> </a><br>Html5</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://socket.io/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="socket.io" width="40" height="40"/> </a><br>Socket.io</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://recoiljs.org/ko/" target="_blank" >Recoil</a></div>
+</td>
+  <td width="60">
+   <div align="center"><a href="https://styled-components.com/" target="_blank" width="40" height="40">Styled-Component</a></div>
+  </td>	 
+ </tr>
+ </tbody></table>
+ 
+ ### Back-End
 
 - Nodejs
 - Express
@@ -62,8 +86,38 @@
 - typescript
 - wrtc
 - redis
-
-<br />
+<table><tbody>
+ <tr>
+  <td width="60">
+   <div align="center"><a href="https://nodejs.org" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg" alt="node.js" width="40" height="40" /> </a><br>Node.js</div>
+  </td>
+  <td width="60">
+   <div align="center"><a href="https://expressjs.com" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" alt="express" width="40" height="40"/> </a><br>Express</div>
+  </td>
+  <td width="60">
+   <div align="center"><a href="https://www.typescriptlang.org/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"  /> </a><br>Typescript</div>
+  </td>
+  <td width="60">
+   <div align="center"><a href="https://strapi.io/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="socket.io" width="40" height="40" /> </a><br>Socket.io</div>
+  </td>
+  <td width="60">
+   <div align="center"><a href="https://redis.io/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40" /> </a><br>Redis</div>
+  </td>
+ </tr>
+ </tbody></table>
+ 
+ ### Database
+ 
+ <table><tbody>
+ <tr>
+  <td>
+   <div align="center"><a href="https://www.mongodb.com/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg" alt="mongoDB" width="40" height="40" /> </a><br>MongoDB</div>
+  </td>
+  <td>
+   <div align="center"><a href="https://mongoosejs.com/" target="_blank">Mongoose</a></div>
+  </td>	 
+</tr>
+ </tbody></table>
 
 ## 프로젝트 실행 방법
 
