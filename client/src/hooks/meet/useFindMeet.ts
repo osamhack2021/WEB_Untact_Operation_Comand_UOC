@@ -1,3 +1,4 @@
+
 import { IMeetState } from "atoms/meetState";
 import { MeetParams } from "components/meet/Meet";
 import { findMeetAPI } from "lib/api/meet";
@@ -28,5 +29,6 @@ export default function useFindMeet() {
     loading,
     exist,
     meet,
+    meetId,
   };
 }
