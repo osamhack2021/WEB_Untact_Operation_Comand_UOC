@@ -11,7 +11,7 @@ import RegisterPage from "pages/RegisterPage";
 import LoginPage from "pages/LoginPage";
 import MembersPage from "pages/MembersPage";
 import MeetPage from "pages/MeetPage";
-import SettimgPage from "pages/SettingPage";
+import SearchPage from "pages/SearchPage";
 const App = () => {
   useChannelPluginEffect();
   return (
@@ -30,7 +30,7 @@ const App = () => {
             <Route path="/" exact component={MeetListPage} />
             <Route path="/schedule" exact component={CalendarPage} />
             <Route path="/members" exact component={MembersPage} />
-            <Route path="/setting" exact component={SettimgPage} />
+            <Route path="/search" component={SearchPage} />
           </MainLayout>
         </AsideLayout>
       </Switch>
@@ -69,7 +69,7 @@ const MainLayout = styled.div`
 `;
 
 const PageTitle = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   .left {
     font-size: 22px;
     font-weight: 500;
