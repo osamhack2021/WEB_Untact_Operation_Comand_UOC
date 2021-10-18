@@ -2,9 +2,9 @@ import React from "react";
 import styled from "styled-components";
 
 import { BsFillPersonFill, BsTrash } from "react-icons/bs";
-import useMemberListEffect from "hooks/Member/useMemberListEffect";
+import useMemberListEffect from "hooks/member/useMemberListEffect";
 import media from "lib/styles/media";
-import useMemberHandleEffect from "hooks/Member/useMemberHandleEffect";
+import useMemberHandleEffect from "hooks/member/useMemberHandleEffect";
 import useModal from "hooks/common/useModal";
 import MemberSearchModal from "./MemberSearchModal";
 
@@ -51,12 +51,7 @@ const MembersList = () => {
   );
 };
 
-const MenberListBlock = styled.div`
-  margin: 50px 150px 0px 25px;
-  ${media.small} {
-    margin: 50px 90px 0px 25px;
-  }
-`;
+const MenberListBlock = styled.div``;
 
 const List = styled.div`
   display: flex;
@@ -119,6 +114,12 @@ const ListEle = styled.div`
   ${media.small} {
     .call {
       font-size: 13px;
+    }
+    .friendName {
+      font-size: 13px;
+    }
+    .delFriend {
+      color: rgb(142, 155, 164);
     }
   }
 `;
