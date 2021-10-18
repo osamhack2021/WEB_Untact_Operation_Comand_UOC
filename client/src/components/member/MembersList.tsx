@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { BsFillPersonFill, BsTrash } from "react-icons/bs";
 import useMemberListEffect from "hooks/member/useMemberListEffect";
 import media from "lib/styles/media";
-import useMemberHandleEffect from "hooks/member/useMemberHandleEffect";
+import useMemberHandleEffect from "hooks/Member/useMemberHandleEffect";
 import useModal from "hooks/common/useModal";
 import MemberSearchModal from "./MemberSearchModal";
 
