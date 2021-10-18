@@ -19,7 +19,32 @@
 
 ## UOC 기능
 
-프로젝트 완성 후 공개 🤣
+### webRTC & socket io
+
+- 웹캠을 이용한 화상 통화 (1:N 통화 가능, 캠,마이크,스피커 설정 변경 가능)
+- 컴퓨터 화면 공유 기능
+- 채팅 기능
+- 진행 중인 화상회의 목록 제공
+- 회의 검색 기능
+- 회의 생성 기능 (회의 이름, 썸네일, 설명, 비밀번호 설정 가능)
+- 회의 참석자 목록 제공
+- 회의 종료 (호스트가 회의 종료시 자동 회의 종료)
+
+### jwt & OAuth2.0
+
+- jwt를 이용해 안전하게 사용자 인증 (로그인, 회원가입)
+- OAuth2.0을 이용해 간편하고 안전한 소셜 로그인 (google 계정으로 회원가입, 로그인)
+
+### full Calander
+
+- 화상 회의 일정 등록,수정,삭제 가능
+- 회의 일정 주/월/일별 확인 가능
+
+### user
+
+- 친구 목록, 추가, 삭제 가능
+- 친구와 1:1 화상채팅 원클릭 생성
+- 개인 정보 수정 가능
 
 <br />
 
@@ -31,13 +56,22 @@
 
 ## DataBase
 
-프로젝트 완성 후 공개 🤣
+<div>
+<img src="/docs/images/DataBase.png" align="left"  width="100%" />    
+</div>
 
 <br />
 
 ## API DOCS
 
-프로젝트 완성 후 공개 🤣🤣
+<div>
+<img src="/docs/images/userAPI.PNG" align="left"  width="100%" />      
+<img src="/docs/images/meetAPI.PNG" align="left"  width="100%" />      
+<img src="/docs/images/calendarAPI.PNG" align="left"  width="100%" />
+
+</div>
+
+<br />
 
 <br />
 
@@ -91,7 +125,6 @@
 - socket io
 - typescript
 - wrtc
-- redis
 <table><tbody>
  <tr>
   <td width="60">
@@ -106,14 +139,13 @@
   <td width="60">
    <div align="center"><a href="https://strapi.io/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg" alt="socket.io" width="40" height="40" /> </a><br>Socket.io</div>
   </td>
-  <td width="60">
-   <div align="center"><a href="https://redis.io/" target="_blank"> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original-wordmark.svg" alt="redis" width="40" height="40" /> </a><br>Redis</div>
-  </td>
  </tr>
  </tbody></table>
  
  ### Database
  
+ - MongoDB
+ - Mongoose
  <table><tbody>
  <tr>
   <td>
