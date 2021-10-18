@@ -1,30 +1,50 @@
-const clientId =
-  "135690089362-ajbisu3vdskt7eogjk847bpt9hgc7hav.apps.googleusercontent.com";
+import { userState } from "atoms/userState";
+import { googleLoginAPI, googleRegisterAPI } from "lib/api/auth";
+import userStorage from "lib/userStorage";
+import { useHistory } from "react-router";
+import { useSetRecoilState } from "recoil";
 
-export default function useGoogleLogin() {
-  const onSuccess = async (response: any) => {
-    console.log(response);
+export default function useGoogleAuth() {
+  const history = useHistory();
+  const setUserState = useSetRecoilState(userState);
 
-    const {
-      googleId,
-      profileObj: { email, name },
-    } = response;
+  const onRegisterSuccess = async (response: any) => {
+    const { accessToken } = response;
 
-    console.log(response);
-    // await onSocial({
-    //   socialId: googleId,
-    //   socialType: "google",
-    //   email,
-    //   nickname: name,
-    // });
+    try {
+      const user = await googleRegisterAPI(accessToken);
+      setUserState(user);
+      userStorage.set(user);
+      history.push("/");
+    } catch (e) {
+      alert("회원가입에 실패했습니다.");
+    }
   };
-  const onFailure = (error: any) => {
+  const onRegisterFailure = (error: any) => {
+    console.log(error);
+  };
+
+  const onLoginSuccess = async (response: any) => {
+    const { accessToken } = response;
+
+    try {
+      const user = await googleLoginAPI(accessToken);
+      setUserState(user);
+      userStorage.set(user);
+      history.push("/");
+    } catch (e) {
+      alert("로그인에 실패했습니다.");
+    }
+  };
+
+  const onLoginFailure = (error: any) => {
     console.log(error);
   };
 
   return {
-    clientId,
-    onSuccess,
-    onFailure,
+    onRegisterSuccess,
+    onRegisterFailure,
+    onLoginSuccess,
+    onLoginFailure,
   };
 }
