@@ -11,13 +11,10 @@ import RegisterPage from "pages/RegisterPage";
 import LoginPage from "pages/LoginPage";
 import MembersPage from "pages/MembersPage";
 import MeetPage from "pages/MeetPage";
+import SettingPage from "pages/SettingPage";
 import SearchPage from "pages/SearchPage";
-import MobileHeader from "components/base/MobileHeader";
-import { useRecoilValue } from "recoil";
-import { sideBarState } from "atoms/sideBarState";
 const App = () => {
   useChannelPluginEffect();
-  const sideBar = useRecoilValue(sideBarState);
   return (
     <>
       <Switch>
@@ -25,8 +22,7 @@ const App = () => {
         <Route path="/register" exact component={RegisterPage} />
         <Route path="/login" exact component={LoginPage} />
 
-        <AsideLayout sideBar={sideBar}>
-          <MobileHeader />
+        <AsideLayout>
           <Aside />
           <MainLayout>
             <PageTitle>
@@ -35,6 +31,7 @@ const App = () => {
             <Route path="/" exact component={MeetListPage} />
             <Route path="/schedule" exact component={CalendarPage} />
             <Route path="/members" exact component={MembersPage} />
+            <Route path="/setting" exact component={SettingPage} />
             <Route path="/search" component={SearchPage} />
           </MainLayout>
         </AsideLayout>
@@ -45,7 +42,7 @@ const App = () => {
 
 export default App;
 
-const AsideLayout = styled.div<{ sideBar: boolean }>`
+const AsideLayout = styled.div`
   margin-left: 260px;
   height: 100%;
   ${media.xlarge} {
@@ -53,9 +50,7 @@ const AsideLayout = styled.div<{ sideBar: boolean }>`
   }
   ${media.small} {
     margin-left: 0;
-    padding-top: 50px;
   }
-  ${(props) => props.sideBar && `overflow: hidden;`}
 `;
 
 const MainLayout = styled.div`
@@ -73,18 +68,12 @@ const MainLayout = styled.div`
   ${media.medium} {
     width: calc(100% - 32px);
   }
-  ${media.small} {
-    padding: 0;
-  }
 `;
 
 const PageTitle = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   .left {
     font-size: 22px;
     font-weight: 500;
-  }
-  ${media.small} {
-    display: none;
   }
 `;
