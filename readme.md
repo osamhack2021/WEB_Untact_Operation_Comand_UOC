@@ -182,7 +182,7 @@
 <tbody>
 
 <tr>
-<td width="100" align="center"><img src="/image/이재하.jpg" width="60" height="60"></td>
+<td width="100" align="center"><img src="doc/images/이재하.jpg" width="60" height="60"></td>
 <td width="100" align="center">이재하</td>
 <td width="250">Frontend</td>
 <td width="150" align="center">	
@@ -196,7 +196,7 @@
 	
  
 <tr>
-<td width="100" align="center"><img src="/image/최수용.jpg" width="60" height="60"></td>
+<td width="100" align="center"><img src="doc/images/최수용.jpg" width="60" height="60"></td>
 <td width="100" align="center">최수용</td>
 <td width="250">Backend</td>
 <td width="150" align="center">	
