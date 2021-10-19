@@ -477,7 +477,14 @@
 <tr>
 <td width="100" align="center"><img src="/docs/images/이재하.jpg" width="60" height="60"></td>
 <td width="100" align="center">이재하</td>
-<td width="250">Frontend</td>
+<td width="250">
+	
+- 유저 인터페이스 설계
+- Frontend 핵심 기능 구현
+- 프로젝트 기획 및 관리
+- 웹 디자인 설계 및 구현
+	
+</td>
 <td width="150" align="center">	
 	<a href="https://github.com/Leejha">
 	<img src="https://img.shields.io/badge/JHL-655ced?style=social&logo=github"/>
@@ -491,7 +498,14 @@
 <tr>
 <td width="100" align="center"><img src="/docs/images/최수용.jpg" width="60" height="60"></td>
 <td width="100" align="center">최수용</td>
-<td width="250">Backend</td>
+<td width="250">
+	
+- Backend 서버 환경 구축
+- DB 설계 및 구축
+- API 및 DB 설계
+- 기타 부가 기능 구현
+	
+</td>
 <td width="150" align="center">	
 	<a href="https://github.com/dpfprtus">
 	<img src="https://img.shields.io/badge/CSY-655ced?style=social&logo=github"/>
@@ -500,3 +514,7 @@
 <td width="300" align="center">
 <a href="mailto:dpfprtus@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=dpfprtus@gmail.com&color=lightblue&style=flat-square&logo=gmail"></a>
 </tr>
+	</table>
+<div>
+<img src="/docs/images/비작사-001.png" align="center"  width="100%" />
+	</div>
