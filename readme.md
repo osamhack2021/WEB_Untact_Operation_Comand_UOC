@@ -264,6 +264,13 @@ $ npm start
 <br />
 
 ## 개발 기록
+
+<details><summary><b>개발과정</b></summary>
+<img src="/docs/images/개발과정1.png" align="left"  width="100%" />
+<img src="/docs/images/개발과정2.png" align="left"  width="100%" />
+<img src="/docs/images/개발과정3.png" align="left"  width="100%" />
+<img src="/docs/images/개발과정4.png" align="left"  width="100%" />
+</details>
 <details><summary><b>10월</b></summary>
 <b>2021.10.17</b>
 	
