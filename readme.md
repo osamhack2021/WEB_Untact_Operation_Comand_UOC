@@ -13,13 +13,6 @@
 
 <br />
 
-
-<p align="center">
-  <a href="https://dpfprtus.gitbook.io/uoc/" target="_blank">
-    <img src="https://img.shields.io/badge/GitBook-project_doc-blue?&style=for-the-badge&logo=github" />
-  </a>
-</p>
-
 ## UOC 기능
 
 ### webRTC & socket io
@@ -68,8 +61,17 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 ## API DOCS
 
 <div>
+
+### calendar
+
 <img src="/docs/images/userAPI.png" align="left"  width="100%" />      
+
+### meet
+
 <img src="/docs/images/meetAPI.png" align="left"  width="100%" />      
+
+### user
+
 <img src="/docs/images/calendarAPI.png" align="left"  width="100%" />
 
 </div>
