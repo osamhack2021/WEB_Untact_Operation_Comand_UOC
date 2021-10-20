@@ -470,8 +470,8 @@ $ npm start
 - SFU 서버 구축
 </details>
 <br />
-## 팀원
 
+## 팀원
 <table width="900">
 <thead>
 <tr>
