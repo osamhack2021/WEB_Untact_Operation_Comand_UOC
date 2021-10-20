@@ -587,7 +587,6 @@ $ npm start
 </tr>
 	</tobdy></table>
 	
-	[(Back to top)](##프로젝트 소개)
 <div>
 <img src="/docs/images/비작사-001.png" align="center"  width="100%" />
 	</div>
