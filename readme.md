@@ -170,38 +170,35 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 
 ## 개발 기록
 <details><summary><b>10월</b></summary>
-	<details><summary><b>2021.10.17</b></summary>
+<b>2021.10.17</b>
 	
 - google 회원가입 API
 - google 로그인 API
 - user model에 social 계정 관련 schema 추가
 - 구글 로그인, 회원가입 (프론트 - 백 연동)
 	
-</details>
-<details><summary><b>2021.10.15</b></summary>
+<b>2021.10.15</b>
 	
 - 마이페이지 반응형 구현
 - 친구목록 페이지 반응형 구현
 - 일정 페이지 반응형 구현
 	
-</details>
-<details><summary><b>2021.10.14</b></summary>
+<b>2021.10.14</b>
 	
 - google-login-client 설정
 	
-</details>
-<details><summary><b>2021.10.13</b></summary>
+<b>2021.10.13</b>
 	
 - 친구 추가, 삭제 후 새로고침 없이 친구목록 정보 업데이트 하게 설정
 	
-</details>
-<details><summary><b>2021.10.12</b></summary>
+
+<b>2021.10.12</b>
 	
 - 친구 검색 기능 구현
 - 친구 추가 기능 구현
 	
-</details>
-<details><summary><b>2021.10.11</b></summary>
+
+<b>2021.10.11</b>
 	
 - 캠 설정 변경 기능 추가
 - 화면 공유 기능 구현
@@ -209,28 +206,26 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Mobile SideBar UI 구현
 - Mobile SearchBar UI 구현
 	
-</details>
-<details><summary><b>2021.10.10</b></summary>
+
+<b>2021.10.10</b>
 	
 - 개인 정보 수정 기능 구현
 - 개인 정보 수정 UI 구현
 - 개인 정보 (프론트 - 백 연동)
 	
-</details>
-<details><summary><b>2021.10.09</b></summary>
+
+<b>2021.10.09</b>
 	
 - 회의 비밀번호 모달 수정
 	
-</details>
-<details><summary><b>2021.10.08</b></summary>
+<b>2021.10.08</b>
 	
 - 회의 검색 API
 - 회의 검색 UI 구현
 - 회의 검색(프론트 - 백 연동)
 - searchForm hooks로 분리
 	
-</details>
-<details><summary><b>2021.10.07</b></summary>
+<b>2021.10.07</b>
 	
 - 비밀 회의 입장시 비밀번호 modal 생성
 - 회의 비밀번호 체크 API 구현
@@ -240,25 +235,21 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Home Nav Menu 활성화 UI
 - Home Nav Link 기능 구현
 	
-</details>
-<details><summary><b>2021.10.06</b></summary>
+<b>2021.10.06</b>>
 	
 - 친구 삭제 기능 구현
 	
-</details>
-<details><summary><b>2021.10.05</b></summary>
+<b>2021.10.05</b>
 	
 - 화상 회의속 채팅방 UI 수정
 	
-</details>
-<details><summary><b>2021.10.04</b></summary>
+<b>2021.10.04</b>
 	
 - 회의 종료시 호스트가 회의를 종료했습니다 모달 창 띄우기
 - AuthError 컴포넌트 생성
 - socket 코드 리팩토링
 	
-</details>
-<details><summary><b>2021.10.03</b></summary>
+<b>2021.10.03</b>
 	
 - MeetNotFound Image 추가
 - 음소거 안했는데 말 안들리는 현상 해결
@@ -266,16 +257,14 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - schedule 상세보기 구현
 - 화상 회의 속 채팅방 기능 구현
 	
-</details>
-<details><summary><b>2021.10.02</b></summary>
+<b>2021.10.02</b>
 	
 - 회의 video 더블클릭시 전체화면
 - Image 공통 컴포넌트 반응형으로 구현
 - 회의 Sidebar toggle시 animation 효과 적용
 - 채팅 Sidebar UI 구현
 	
-</details>
-<details><summary><b>2021.10.01</b></summary>
+<b>2021.10.01</b>
 	
 - 호스트가 회의 종료시 회의 삭제
 - Auth localStorage -> sessionStorage
@@ -284,9 +273,9 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - 회의 방 제목 띄우기
 
 </details>
-</details>
+
 <details><summary><b>9월</b></summary>
-	<details><summary><b>2021.09.30</b></summary>
+	<b>2021.09.30</b>
 
 - Meet Thumbnial 이미지 업로드(백-프론트 연동)
 - 화면 공유 Icon 변경
@@ -295,14 +284,12 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Loading 공통 컴포넌트 구현
 - 회의 목록 불러올때 loading 컴포넌트 추가
 
-</details>
-<details><summary><b>2021.09.29</b></summary>
+<b>2021.09.29</b>
 	
 - schedule 등록시 새로고침 없이 화면 출력
 - 로그인 해야만 스케줄 등록가능하게 수정
 
-</details>
-<details><summary><b>2021.09.28</b></summary>
+<b>2021.09.28</b>
 
 - 일정생성 client-server 연동
 - read Meet List API 구현
@@ -310,14 +297,12 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Meet 생성 (백-프론트 연동)
 - Meet 리스트 조회(백-프론트 연동)
 
-</details>
-<details><summary><b>2021.09.27</b></summary>
+<b>2021.09.27</b>
 	
 - meet model 수정
 - create Meet API 구현
 
-</details>
-<details><summary><b>2021.09.26</b></summary>
+<b>2021.09.26</b>
 	
 - userStorage(localStorage) 적용
 - recoil initializeState 설정
@@ -327,35 +312,30 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Logout API와 Client 연동
 - Members List 조회
 
-</details>
-<details><summary><b>2021.09.25</b></summary>
+<b>2021.09.25</b>
 
 - LoginPage UI 구현
 - RegisterPage UI 구현
 - useInput 공통 hooks 생성
 	
-</details>
-<details><summary><b>2021.09.24</b></summary>
+<b>2021.09.24</b>
 	
 - 일정 관리 TimeIssue 해결
 	
-</details>
-<details><summary><b>2021.09.23</b></summary>
+
+<b>2021.09.23</b>
 	
 - 일정 생성, 일정 조회, 일정 삭제 API 구현
 
-</details>
-<details><summary><b>2021.09.22</b></summary>
+<b>2021.09.22</b>
 	
 - 스케줄 일정 생성 Modal UI 구현
 	
-</details>
-<details><summary><b>2021.09.21</b></summary>
+<b>2021.09.21</b>
 	
 - 스케줄 일정 생성 Button 구현
 
-</details>
-<details><summary><b>2021.09.20</b></summary>
+<b>2021.09.20</b>
 	
 - 화상회의 목록 Grid UI 구현
 - HomePage 반응형 UI 구현
@@ -364,102 +344,79 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 - Modal 공통 컴포넌트 구현
 - 회의 생성 Modal UI 구현
 	
-</details>
-<details><summary><b>2021.09.19</b></summary>
+<b>2021.09.19</b>
 	
 - user model 구현
 - user login, logout, register API, 라우터 구현
 - user checkLoggedIn 미들웨어 구현
 
-</details>
-<details><summary><b>2021.09.18</b></summary>
+<b>2021.09.18</b>
 	
 - 메인 Page Title 설정
 - chaanel-API-KEY config 파일로 이동
 	
-</details>
-<details><summary><b>2021.09.17</b></summary>
+<b>2021.09.17</b>
 	
 - channel-plugin 구현
 - Aside 반응형(테블릿) 구현
 	
-</details>
-<details><summary><b>2021.09.16</b></summary>
+<b>2021.09.16</b>
 	
 - media, palette 추가
 - 메인 Aside 템플릿 추가
-	
-</details>
-<details><summary><b>2021.09.15</b></summary>
+
+<b>2021.09.15</b>
 	
 - app.ts에서 socket 함수 파일 분리
 - meet 모델 생성
 
-</details>
-<details><summary><b>2021.09.12</b></summary>
+<b>2021.09.12</b>
 	
 - 화면 공유 기능(getDisplayMedia) 예제코드 추가
 	
-</details>
-<details><summary><b>2021.09.11</b></summary>
+<b>2021.09.11</b>
 	
 - Eslint 에러 제거
 - Video 화질 고화질로 설정
 	
-</details>
-<details><summary><b>2021.09.10</b></summary>
+<b>2021.09.10</b>
 	
 - SFU 서버 타입스크립트로 변경
 	
-</details>
-<details><summary><b>2021.09.09</b></summary>
+<b>2021.09.09</b>
 	
 - Meet 종료 기능, 버튼 추가
 - 유저 목록 버튼 추가
 - user SideBar에 유저 목록 표시
 - user SideBar에 음소거 아이콘 추가
 	
-</details>
-<details><summary><b>2021.09.08</b></summary>
+<b>2021.09.08</b>
 	
 - Meet Grid 비율 수정
 - video Toggle, audio Toggle 추가
 	
-</details>
-<details><summary><b>2021.09.07</b></summary>
+<b>2021.09.07</b>
 	
 - Meet User Side Bar 구현
 
-</details>
-<details><summary><b>2021.09.06</b></summary>
+<b>2021.09.06</b>
 	
 - my Stream 정보 추가
 - 캠 비율 width, height 값 설정
 
-</details>
-<details><summary><b>2021.09.05</b></summary>
+<b>2021.09.05</b>
 	
 - socket room 설정
 - Meet Grid UI 생성
 	
-</details>
-<details><summary><b>2021.09.04</b></summary>
+<b>2021.09.04</b>
 	
 - client-SFU peer 연결 구현
 
-</details>
-<details><summary><b>2021.09.02</b></summary>
+<b>2021.09.02</b>
 	
 - SFU 서버 구축
 	
-</details>
-</details>
-<details><summary><b>8월</b></summary>
-<details><summary><b>2021.08.24</b></summary>
-		
-- 위대한 시작
-- socket 서버 생성
-</details>
 </details>
 
 <br />
