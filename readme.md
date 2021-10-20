@@ -1,7 +1,11 @@
 <img src="/docs/images/비작사-001.png" align="left"  width="100%" />
 </div>
 
-### <div align="center">군인들을 위한 화상 플랫폼💂 <b>비대면 작전 사령부</b></div>
+<p align="center">
+  <a href="https://dpfprtus.gitbook.io/uoc/" target="_blank">
+    <img src="https://img.shields.io/badge/GitBook-project_doc-blue?&style=for-the-badge&logo=github" />
+  </a>
+</p>
 
 <br />
 
@@ -10,8 +14,6 @@
 <br />
 
 
-## 메뉴얼
-깃북을 통해서 UOC프로젝트의 모든것을 확인해 보세요!
 <p align="center">
   <a href="https://dpfprtus.gitbook.io/uoc/" target="_blank">
     <img src="https://img.shields.io/badge/GitBook-project_doc-blue?&style=for-the-badge&logo=github" />
