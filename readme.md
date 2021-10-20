@@ -163,9 +163,61 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
  </tbody></table>
 
 ## 프로젝트 실행 방법
+<details><summary><b>실행 방법 보기</b></summary>
 
-프로젝트 [설치 가이드 보러가기](docs/installation.md)
+# 설치 가이드
+	
+아래 지시사항을 통해 프로젝트를 실행하실 수 있습니다.
 
+<br />
+
+## 필수 구성 요소
+
+- Node.js
+- MongoDB
+
+<br />
+
+## 설치
+
+1. 프로젝트 클론
+
+```console
+$ git clone https://github.com/osamhack2021/WEB_Untact_Operation_Comand_UOC
+```
+
+2. 패키지 설치
+
+```console
+$ cd WEB(FE)
+$ npm install
+$ cd ../WEB(BE)
+$ npm install
+```
+
+3. 환경 변수 설정  
+   WEB(BE) 폴더 안에 .env 파일 생성 후 아래 내용 기입
+
+```
+PORT=8080
+DBURL=몽고디비주소
+JWT_SECRET=untact-operation-command
+```
+
+## Backend 서버 실행
+
+```console
+$ cd WEB(BE)
+$ npm run dev
+```
+
+## Frontend 서버 실행
+
+```console
+$ cd WEB(FE)
+$ npm start
+```
+</details>
 <br />
 
 ## 개발 기록
@@ -416,11 +468,8 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 <b>2021.09.02</b>
 	
 - SFU 서버 구축
-	
 </details>
-
 <br />
-
 ## 팀원
 
 <table width="900">
@@ -475,7 +524,7 @@ https://www.youtube.com/watch?v=vU4OYSSgf1E
 <td width="300" align="center">
 <a href="mailto:dpfprtus@gmail.com"><img src="https://img.shields.io/static/v1?label=&message=dpfprtus@gmail.com&color=lightblue&style=flat-square&logo=gmail"></a>
 </tr>
-	</table>
+	</tobdy></table>
 <div>
 <img src="/docs/images/비작사-001.png" align="center"  width="100%" />
 	</div>
