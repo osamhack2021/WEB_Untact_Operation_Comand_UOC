@@ -51,7 +51,7 @@
 
 ## 프로젝트 시연
 
-프로젝트 완성 후 공개 🤣
+https://www.youtube.com/watch?v=vU4OYSSgf1E
 
 <br />
 
@@ -66,9 +66,9 @@
 ## API DOCS
 
 <div>
-<img src="/docs/images/userAPI.PNG" align="left"  width="100%" />      
-<img src="/docs/images/meetAPI.PNG" align="left"  width="100%" />      
-<img src="/docs/images/calendarAPI.PNG" align="left"  width="100%" />
+<img src="/docs/images/userAPI.png" align="left"  width="100%" />      
+<img src="/docs/images/meetAPI.png" align="left"  width="100%" />      
+<img src="/docs/images/calendarAPI.png" align="left"  width="100%" />
 
 </div>
 
