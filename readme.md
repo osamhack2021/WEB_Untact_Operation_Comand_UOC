@@ -15,9 +15,14 @@
 
 <br />
 
-## UOC 기능
+## 플랫폼 소개
 
 ### webRTC & socket io
+
+<img src="/docs/images/화상회의리스트.png" align="left"/>
+<img src="/docs/images/화상회의릿.png" align="left"/>
+
+<br />
 
 - 웹캠을 이용한 화상 통화 (1:N 통화 가능, 캠,마이크,스피커 설정 변경 가능)
 - 컴퓨터 화면 공유 기능
@@ -28,21 +33,36 @@
 - 회의 참석자 목록 제공
 - 회의 종료 (호스트가 회의 종료시 자동 회의 종료)
 
-### jwt & OAuth2.0
+### Full Calander
 
-- jwt를 이용해 안전하게 사용자 인증 (로그인, 회원가입)
-- OAuth2.0을 이용해 간편하고 안전한 소셜 로그인 (google 계정으로 회원가입, 로그인)
-
-### full Calander
+<img src="/docs/images/일정관리.png" align="left"/><br/><br/><br/>
 
 - 화상 회의 일정 등록,수정,삭제 가능
 - 회의 일정 주/월/일별 확인 가능
 
-### user
+### User
+
+<img src="/docs/images/그룹관리.png" align="left"/>
+
+<br />
 
 - 친구 목록, 추가, 삭제 가능
 - 친구와 1:1 화상채팅 원클릭 생성
 - 개인 정보 수정 가능
+
+### 모바일 지원
+
+<img src="/docs/images/모바일지원.png" align="left"/>
+
+<br/>
+
+- 완벽한 모바일 호환
+- 사용자 친화저인 UI/UX
+
+### JWT & OAuth2.0
+
+- jwt를 이용해 안전하게 사용자 인증 (로그인, 회원가입)
+- OAuth2.0을 이용해 간편하고 안전한 소셜 로그인 (google 계정으로 회원가입, 로그인)
 
 <br />
 
