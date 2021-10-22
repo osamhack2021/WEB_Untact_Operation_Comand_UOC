@@ -246,16 +246,6 @@ $ npm install
 $ cd ../WEB(BE)
 $ npm install
 ```
-
-3. 환경 변수 설정  
-   WEB(BE) 폴더 안에 .env 파일 생성 후 아래 내용 기입
-
-```
-PORT=8080
-DBURL=몽고디비주소
-JWT_SECRET=untact-operation-command
-```
-
 ## Backend 서버 실행
 
 ```console
